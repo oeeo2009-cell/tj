@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TJ ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Cairo',sans-serif;
+}
+
+body{
+    overflow:hidden;
+    background:#000;
+    height:100vh;
+}
+
+video.bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-5;
+    filter:brightness(0.35);
+}
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top,#ff4d88 0%,transparent 30%),
+    radial-gradient(circle at bottom,#ff0066 0%,transparent 30%),
+    rgba(0,0,0,0.45);
+    z-index:-4;
+}
+
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:-3;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation: twinkle linear infinite;
+}
+
+@keyframes twinkle{
+    0%{opacity:0;}
+    50%{opacity:1;}
+    100%{opacity:0;}
+}
+
+.container{
+    position:relative;
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.main-title{
+    font-size:90px;
+    font-weight:900;
+    letter-spacing:8px;
+    text-shadow:
+    0 0 10px #ff4da6,
+    0 0 30px #ff0066,
+    0 0 60px #ff0066;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.05);
+    }
+}
+
+.real-name{
+    margin-top:10px;
+    font-size:40px;
+    color:#ffd6e7;
+    text-shadow:0 0 20px #ff4da6;
+}
+
+.love-text{
+    margin-top:25px;
+    font-size:28px;
+    max-width:900px;
+    line-height:2;
+    color:#fff0f6;
+    animation: fadeUp 2s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.heart-container{
+    margin-top:50px;
+    position:relative;
+}
+
+.heart{
+    width:140px;
+    height:140px;
+    background:#ff0055;
+    transform:rotate(-45deg);
+    cursor:pointer;
+    animation:pulse 1.2s infinite;
+    box-shadow:
+    0 0 40px #ff0055,
+    0 0 80px #ff0055;
+}
+
+.heart::before,
+.heart::after{
+    content:'';
+    position:absolute;
+    width:140px;
+    height:140px;
+    background:#ff0055;
+    border-radius:50%;
+}
+
+.heart::before{
+    top:-70px;
+    left:0;
+}
+
+.heart::after{
+    left:70px;
+    top:0;
+}
+
+@keyframes pulse{
+    0%{
+        transform:rotate(-45deg) scale(1);
+    }
+    50%{
+        transform:rotate(-45deg) scale(1.12);
+    }
+    100%{
+        transform:rotate(-45deg) scale(1);
+    }
+}
+
+.click-text{
+    margin-top:50px;
+    font-size:24px;
+    color:#ffe3ee;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink{
+    0%,100%{opacity:1;}
+    50%{opacity:.3;}
+}
+
+.floating-hearts{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.float-heart{
+    position:absolute;
+    color:#ff4d88;
+    font-size:25px;
+    animation: floatUp linear forwards;
+    opacity:.8;
+}
+
+@keyframes floatUp{
+    0%{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-120vh) scale(2);
+        opacity:0;
+    }
+}
+
+.message-box{
+    position:absolute;
+    bottom:40px;
+    width:100%;
+    text-align:center;
+    font-size:22px;
+    color:#fff;
+    text-shadow:0 0 10px #ff4d88;
+    padding:0 20px;
+}
+
+.music-wave{
+    display:none;
+    gap:6px;
+    justify-content:center;
+    align-items:flex-end;
+    height:40px;
+    margin-top:35px;
+}
+
+.music-wave span{
+    width:6px;
+    height:15px;
+    background:#ff4d88;
+    border-radius:20px;
+    animation:wave 1s infinite;
+}
+
+.music-wave span:nth-child(2){animation-delay:.2s;}
+.music-wave span:nth-child(3){animation-delay:.4s;}
+.music-wave span:nth-child(4){animation-delay:.6s;}
+.music-wave span:nth-child(5){animation-delay:.8s;}
+
+@keyframes wave{
+    0%{height:15px;}
+    50%{height:40px;}
+    100%{height:15px;}
+}
+
+@media(max-width:700px){
+
+.main-title{
+    font-size:55px;
+}
+
+.real-name{
+    font-size:28px;
+}
+
+.love-text{
+    font-size:20px;
+}
+
+.heart{
+    width:100px;
+    height:100px;
+}
+
+.heart::before,
+.heart::after{
+    width:100px;
+    height:100px;
+}
+
+.heart::before{
+    top:-50px;
+}
+
+.heart::after{
+    left:50px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="stars" id="stars"></div>
+
+<div class="floating-hearts" id="floatingHearts"></div>
+
+<div class="container">
+
+<div class="main-title">TJ ❤️</div>
+
+<div class="real-name">
+تهجد
+</div>
+
+<div class="love-text">
+من بين كل الناس...  
+أنتِ أجمل صدفة دخلت حياتي ❤️  
+وفرحتي بنجاحك أكبر من أي كلام  
+أنتِ فخر وراحة وسبب ابتسامتي بكل يوم  
+وكل هذا الموقع معمول حتى أقولك:
+<br><br>
+أنا أحبك يا تهجد ❤️
+</div>
+
+<div class="heart-container">
+<div class="heart" id="heart"></div>
+</div>
+
+<div class="click-text">
+اضغطي على القلب ❤️
+</div>
+
+<div class="music-wave" id="wave">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<div class="message-box" id="message">
+نجاحك خلا العالم كله أجمل ✨
+</div>
+
+</div>
+
+<audio id="song" loop>
+<source src="اسمر دخيلك ياسمر _ يونس العبودي(MP3_160K).mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const stars = document.getElementById("stars");
+
+for(let i=0;i<250;i++){
+
+    let star = document.createElement("div");
+    star.className = "star";
+
+    star.style.left = Math.random()*100 + "%";
+    star.style.top = Math.random()*100 + "%";
+
+    let size = Math.random()*3;
+
+    star.style.width = size + "px";
+    star.style.height = size + "px";
+
+    star.style.animationDuration = (Math.random()*5+2)+"s";
+
+    stars.appendChild(star);
+}
+
+const floatingHearts = document.getElementById("floatingHearts");
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.className = "float-heart";
+
+    heart.innerHTML = "❤";
+
+    heart.style.left = Math.random()*100+"%";
+
+    heart.style.bottom = "-20px";
+
+    heart.style.fontSize = (Math.random()*30+15)+"px";
+
+    heart.style.animationDuration = (Math.random()*5+4)+"s";
+
+    floatingHearts.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },9000);
+}
+
+setInterval(createHeart,300);
+
+const heartBtn = document.getElementById("heart");
+const song = document.getElementById("song");
+const wave = document.getElementById("wave");
+
+heartBtn.addEventListener("click",()=>{
+
+    song.play();
+
+    wave.style.display="flex";
+
+    document.querySelector(".click-text").innerHTML =
+    "الموسيقى اشتغلت ❤️";
+
+    for(let i=0;i<40;i++){
+
+        setTimeout(()=>{
+            createHeart();
+        },i*120);
+    }
+
+});
+
+const messages = [
+
+"تهجد... أنتِ أجمل شخص بحياتي ❤️",
+"نجاحك يسوى الدنيا كلها ✨",
+"كل نبضة بقلبي تنطق اسمك ❤️",
+"TJ = السعادة الحقيقية 💖",
+"ضحكتك أجمل من كل الأشياء 🌸",
+"أنتِ مو مجرد حب... أنتِ حياة ❤️"
+
+];
+
+let index = 0;
+
+setInterval(()=>{
+
+    index++;
+
+    if(index >= messages.length){
+        index = 0;
+    }
+
+    document.getElementById("message").innerHTML = messages[index];
+
+},4000);
+
+</script>
+
+</body>
+</html>
